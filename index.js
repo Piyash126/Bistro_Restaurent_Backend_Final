@@ -13,7 +13,7 @@ const mailgun = new Mailgun(formData);
 // Initialize Mailgun client with API key
 const mg = mailgun.client({
     username: 'api',
-    key: process.env.MAILGUN_API_KEY, 
+    key: process.env.MAILGUN_API_KEY,
 });
 
 
@@ -405,17 +405,20 @@ async function run() {
             res.send(result);
         })
 
+        app.get('/', (req, res) => {
+            res.send('Server is runnig');
+        });
+
+        app.listen(port, () => {
+            console.log(`Bistro Boss is Sitting on port ${port}`)
+        })
+
     } finally {
         // Ensures that the client will close when you finish/error
         // await client.close();
     }
+
+
 }
 run().catch(console.dir);
 
-app.get('/', (req, res) => {
-    res.send('Server is runnig');
-});
-
-app.listen(port, () => {
-    console.log(`Bistro Boss is Sitting on port ${port}`)
-})
