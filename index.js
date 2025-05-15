@@ -413,7 +413,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
-    res.send('Boss is Sitting');
+    res.send('Server is runnig');
 });
 
 app.listen(port, () => {
